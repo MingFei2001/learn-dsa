@@ -18,13 +18,26 @@ class LinkedList:
     def __repr__(self):
         pass
 
+    # O(n) - linear: avr -> check half the list / worst -> check whole list
     # check if a value exist in a list
-    def __contains__(self):
-        pass
+    def __contains__(self, value):
+        last = self.head
+        while last is not None:
+            if last.value == value:
+                return True
+            last = last.next
+        return False
 
+    # O(n) - linear: count through all element in the list
+    # O(n) - constant if size is included in the class
     # return size of the list
     def __lens__(self):
-        pass
+        counter = 0
+        last = self.head
+        while last is not None:
+            counter += 1
+            last = last.next
+        return counter
 
     # O(n) - linear: the more element there is then the longer it takes
     # add a value to the end of the list
@@ -63,6 +76,7 @@ class LinkedList:
                 new_node.next = last.next
                 last.next = new_node
 
+    # TODO: video timestamp: 22:52
     # delete a value in the list
     def delete(self, value):
         pass
