@@ -44,6 +44,7 @@ class LinkedList:
         first.next = self.head
         self.head = first
 
+    # O(n) - linear: the higher the index is then the longer it takes
     # add a value to a certain position
     def insert(self, value, index):
         if index == 0:
