@@ -42,7 +42,14 @@ I’ll primarily use Python for code examples due to its readability and extensi
 
 ## Goals
 Through this project, I intend to:
-
 - Build a strong foundation in fundamental DSA concepts.
 - Document my journey as a self-paced resource I can refer to later.
 - Share my progress with others who might find it helpful.
+
+## Credits
+- [NeuralNine](https://www.youtube.com/@NeuralNine)
+- [ThePrimeagen](https://www.youtube.com/c/theprimeagen)
+- [ChatGPT](https://chatgpt.com)
+
+## LICENSE
+This project is licensed under the [GNU General Public License v3.0](LICENSE).
