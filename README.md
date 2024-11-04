@@ -35,6 +35,11 @@ Each DSA topic will have its own sub-directory, containing:
 ## Technologies Used
 I’ll primarily use Python for code examples due to its readability and extensive library support. In the future, I may add implementations in Java and C++ to compare performance and efficiency across languages.
 
+## Current Progress
+- Linked list
+- Stack (WIP)
+- Queue (WIP)
+
 ## Goals
 Through this project, I intend to:
 
