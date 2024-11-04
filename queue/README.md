@@ -16,4 +16,4 @@ Queues are common in situations like:
 - Data Buffers: Temporary storage where items are processed one at a time, like in streaming or print jobs.
 
 ## Reference
-[Stack - Data Structures in Python #2](https://youtu.be/RX3SB6pyXao?si=eMpQ9lEwWc77-07r)
+[Stack - Data Structures in Python #2](https://www.youtube.com/watch?v=9FvlBQQ_gfY)

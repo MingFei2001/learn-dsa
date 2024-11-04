@@ -19,3 +19,6 @@ Unlike arrays, linked lists don’t need to be stored in a single block of memor
 - Add: Insert a new node at a specific spot.
 - Remove: Delete a node from a specific spot.
 - Visit: Go through each node to see what’s inside.
+
+## Reference
+[Linked List - Data Structures in Python #1](https://www.youtube.com/watch?v=1iz9SRWdpX8)
