@@ -50,23 +50,29 @@ class LinkedList:
             last = last.next
         return counter
 
-    # O(n) - linear: the more element there is then the longer it takes
+    # O(n) - constant: jump to the tail and add to the list
     # add a value to the end of the list
     def append(self, value):
         if self.head is None:
             self.head = Node(value)
+            self.tail = self.head
         else:
-            last = self.head
-            while last.next:
-                last = last.next
-            last.next = Node(value)
+            last_node = Node(value)
+            last_node.previous = self.tail
+            self.tail.next = last_node
+            self.tail= last_node
 
-    # O(n) - constant: no matter what it will perform the same
+    # O(n) - constant: jump to the tail and add to the list
     # add a value to the start of the list
     def prepend(self, value):
-        first = Node(value)
-        first.next = self.head
-        self.head = first
+        if self.head is None:
+            self.head = Node(value)
+            self.tail = self.head
+        else:
+            first = Node(value)
+            first.next = self.head
+            self.head.previous = first
+            self.head = first
 
     # O(n) - linear: the higher the index is then the longer it takes
     # add a value to a certain position
@@ -85,6 +91,9 @@ class LinkedList:
                     last = last.next
                 new_node = Node(value)
                 new_node.next = last.next
+                new_node.previous = last
+                if last.next.next is not None:
+                    last.next.previous = new_node
                 last.next = new_node
 
     # O(n) - linear: might need to traverse till the end of list
@@ -98,6 +107,8 @@ class LinkedList:
             else:
                 while last.next:
                     if last.next.value == value:
+                        if last.next.next is not None:
+                            last.next.next.previous = last
                         last.next = last.next.next
                         break
                     last = last.next 
@@ -118,6 +129,8 @@ class LinkedList:
             if last.next is None:
                 raise ValueError("Index out of bound")
             else:
+                if last.next.next is not None:
+                    last.next.next.previous = last
                 last.next = last.next.next
 
     # O(n) - linear: might need to traverse till the end of list
