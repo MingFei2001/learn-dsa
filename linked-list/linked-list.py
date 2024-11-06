@@ -9,6 +9,7 @@ class Node:
 
 # Class Linked list, add node will append to the list
 
+
 class LinkedList:
     # init with empty list
     def __init__(self):
@@ -41,7 +42,7 @@ class LinkedList:
 
     # O(n) - linear: the more element there is then the longer it takes
     # add a value to the end of the list
-    def append(self, value):    
+    def append(self, value):
         if self.head is None:
             self.head = Node(value)
         else:
@@ -52,7 +53,7 @@ class LinkedList:
 
     # O(n) - constant: no matter what it will perform the same
     # add a value to the start of the list
-    def prepend(self, value):   
+    def prepend(self, value):
         first = Node(value)
         first.next = self.head
         self.head = first
@@ -76,10 +77,19 @@ class LinkedList:
                 new_node.next = last.next
                 last.next = new_node
 
-    # TODO: video timestamp: 22:52
     # delete a value in the list
     def delete(self, value):
-        pass
+        last = self.head
+
+        if last is not None:
+            if last.value == value:
+                self.head = last.next
+            else:
+                while last.next:
+                    if last.next.value == value:
+                        last.next = last.next.next
+        else:
+            raise ValueError("Index out of bound")
 
     # delete a value in the list with index
     def pop(self, value):
@@ -92,6 +102,7 @@ class LinkedList:
     # just a print function
     def print(self, value):
         pass
+
 
 if __name__ == "__main__":
     pass
