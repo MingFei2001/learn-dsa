@@ -8,16 +8,24 @@ class Node:
         self.next = None        # pointer to the next node, empty by default
 
 # Class Linked list, add node will append to the list
-
-
 class LinkedList:
     # init with empty list
     def __init__(self):
         self.head = None
 
+    # O(n) - linear: traverse through all element in the list
     # traversing the list and print out values
     def __repr__(self):
-        pass
+        if self.head is None:
+            return "[]"
+        else:
+            last = self.head
+            return_string = f"[{last.value}"
+            while last.next:
+                last = last.next
+                return_string += f", {last.value}"
+            return_string += "]"
+            return return_string
 
     # O(n) - linear: avr -> check half the list / worst -> check whole list
     # check if a value exist in a list
@@ -77,6 +85,7 @@ class LinkedList:
                 new_node.next = last.next
                 last.next = new_node
 
+    # O(n) - linear: might need to traverse till the end of list
     # delete a value in the list
     def delete(self, value):
         last = self.head
@@ -88,21 +97,52 @@ class LinkedList:
                 while last.next:
                     if last.next.value == value:
                         last.next = last.next.next
+                        break
+                    last = last.next 
         else:
             raise ValueError("Index out of bound")
 
+    # O(n) - linear: might need to traverse till the end of list
     # delete a value in the list with index
-    def pop(self, value):
-        pass
+    def pop(self, index):
+        if self.head is None:
+            raise ValueError("Index out of bound")
+        else:
+            last = self.head
+            for i in range(index-1):
+                if last.next is None:
+                    raise ValueError("Index out of bound")
+                last = last.next
+            if last.next is None:
+                raise ValueError("Index out of bound")
+            else:
+                last.next = last.next.next
 
+    # O(n) - linear: might need to traverse till the end of list
     # return the value in the list at the specific index
-    def get(self, value):
-        pass
+    def get(self, index):
+        if self.head is None:
+            raise ValueError("Index out of bound")
+        else:
+            last = self.head
+            for i in range(index):
+                if last.next is None:
+                    raise ValueError("Index out of bound")
+                last = last.next
+            return last.value
 
-    # just a print function
-    def print(self, value):
-        pass
-
-
+# run the program if not imported as lib
 if __name__ == "__main__":
-    pass
+    ll = LinkedList()
+
+    # create your test case
+    ll.append(10)
+    ll.prepend(100)
+    ll.pop(1)
+    ll.delete(100)
+    ll.insert(200,2)
+
+    print(ll)
+    print(ll.get(2))
+    print(18 in ll)
+    print(10 in ll)
